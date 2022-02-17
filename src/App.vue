@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img class="fade-in" alt="Vue logo" src="./assets/logo.png"> <!--Añado la clase fade-in para probar que funcionan-->
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
