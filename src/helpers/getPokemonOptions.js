@@ -2,13 +2,14 @@
 const getPokemons = () => {
 
     const pokemonsArr = Array.from ( Array(650) )
-    console.log( pokemonsArr );
+    //Quiero recorrer los elementos y colocarles el valor que va desde 1 hasta 651
+    return pokemonsArr.map( ( _ , index ) => index +1 )
 
 }
 
 const getPokemonOptions = () => {
-
-    getPokemons()
+    
+    console.log(getPokemons())
 
 }
 
