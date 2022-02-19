@@ -14,7 +14,7 @@ const getPokemonOptions = async () => {
     //Necesito poder mezclar el array
     const mixedPokemons = getPokemons().sort( () => Math.random() - 0.5  )
     const pokemons = await getPokemoNames( mixedPokemons.splice(0,4) ) //Sólo quiero enviar los primeros 4 pokemons para montar los nombres
-    console.table(pokemons);
+    return pokemons
 }
 
 const getPokemoNames = async ( [a,b,c,d] = [] ) => {
