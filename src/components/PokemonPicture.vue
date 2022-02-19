@@ -1,12 +1,12 @@
 <template>
   <div class="pokemon-container">
     <img
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+      :src="imgSrc"
       class="hidden-pokemon"
       alt="pokemon"
     />
     <!-- <img
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+      :src="imgSrc"
       class="fade-in"
       alt="pokemon"
     /> -->
@@ -14,8 +14,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+
+  props: {
+    pokemonId: {
+      type: Number,
+      required: true
+    }
+  },
+  computed: {
+    imgSrc() {
+      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ this.pokemonId }.svg`
+    }
+  }
+
+}
 </script>
+
 
 <!-- Para que sólo se aplique a un componente tenemos que poner scoped-->
 <style scoped>
