@@ -9,7 +9,9 @@ const getPokemons = () => {
 
 const getPokemonOptions = () => {
     
-    console.log(getPokemons())
+    //Necesito poder mezclar el array
+    const mixedPokemons = getPokemons().sort( () => Math.random() - 0.5  )
+    console.log(mixedPokemons)
 
 }
 
