@@ -5,11 +5,11 @@
       class="hidden-pokemon"
       alt="pokemon"
     />
-    <img
+    <!-- <img
       src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
       class="fade-in"
       alt="pokemon"
-    />
+    /> -->
   </div>
 </template>
 
