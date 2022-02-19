@@ -28,7 +28,6 @@ export default {
       async mixPokemonArray() {
         //Como tiene async es una promesa 
         this.pokemonArr = await getPokemonOptions()
-        console.log( this.pokemonArr )
         //Esta información sale distinta porque es una propiedad reactiva
       }
     },
