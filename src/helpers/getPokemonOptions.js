@@ -23,7 +23,7 @@ const getPokemoNames = async (pokemons = [] ) => {
     //Vamos a tener este API https://pokeapi.co/
     const resp = await pokemonApi.get(`/1`)
     
-    console.log(resp)
+    console.log(resp.data.name, resp.data.id)
      
 }
 
