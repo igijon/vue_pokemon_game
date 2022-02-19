@@ -11,8 +11,14 @@ const getPokemonOptions = () => {
     
     //Necesito poder mezclar el array
     const mixedPokemons = getPokemons().sort( () => Math.random() - 0.5  )
-    console.log(mixedPokemons)
+    getPokemonNames( mixedPokemons.splice(0,4) ) //Sólo quiero enviar los primeros 4 pokemons para montar los nombres
 
+}
+
+const getPokemoNames = (pokemons = [] ) => {
+
+    console.log(pokemons)
+     
 }
 
 
