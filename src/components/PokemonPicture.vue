@@ -5,11 +5,11 @@
       class="hidden-pokemon"
       alt="pokemon"
     />
-    <!-- <img
+    <img v-if="pokemonId"
       :src="imgSrc"
       class="fade-in"
       alt="pokemon"
-    /> -->
+    />
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
     pokemonId: {
       type: Number,
       required: true
+    },
+    showPokemon: {
+      type: Boolean,
+      required: true,
+      default: false //Esto es para tener más control por si se le asigna un valor pero no como yo quiero
     }
   },
   computed: {
