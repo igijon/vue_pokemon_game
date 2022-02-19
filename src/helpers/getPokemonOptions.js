@@ -17,13 +17,23 @@ const getPokemonOptions = () => {
 
 }
 
-const getPokemoNames = async (pokemons = [] ) => {
+const getPokemoNames = async ( [a,b,c,d] = [] ) => {
 
     //Vamos a añadir axios => yarn add axios
     //Vamos a tener este API https://pokeapi.co/
-    const resp = await pokemonApi.get(`/1`)
+    // const resp = await pokemonApi.get(`/1`)
     
-    console.log(resp.data.name, resp.data.id)
+    // console.log(resp.data.name, resp.data.id)
+
+    const promiseArr = [
+        pokemonApi.get(`/${ a }`),
+        pokemonApi.get(`/${ b }`),
+        pokemonApi.get(`/${ c }`),
+        pokemonApi.get(`/${ d }`)
+    ]
+    //Permite disparar muchas promesas simultáneamente
+    const respuestas = await Promise.all( promiseArr )
+    console.log(respuestas);
      
 }
 
