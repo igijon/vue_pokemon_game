@@ -9,12 +9,12 @@ const getPokemons = () => {
 
 }
 
-const getPokemonOptions = () => {
+const getPokemonOptions = async () => {
     
     //Necesito poder mezclar el array
     const mixedPokemons = getPokemons().sort( () => Math.random() - 0.5  )
-    getPokemoNames( mixedPokemons.splice(0,4) ) //Sólo quiero enviar los primeros 4 pokemons para montar los nombres
-
+    const pokemons = await getPokemoNames( mixedPokemons.splice(0,4) ) //Sólo quiero enviar los primeros 4 pokemons para montar los nombres
+    console.log(pokemons);
 }
 
 const getPokemoNames = async ( [a,b,c,d] = [] ) => {
@@ -32,8 +32,11 @@ const getPokemoNames = async ( [a,b,c,d] = [] ) => {
         pokemonApi.get(`/${ d }`)
     ]
     //Permite disparar muchas promesas simultáneamente
-    const respuestas = await Promise.all( promiseArr )
-    console.log(respuestas);
+    const [ p1, p2, p3, p4 ] = await Promise.all( promiseArr )
+    
+    return [
+        { name: p1.data.name, id: p1.data.id }
+    ]
      
 }
 
