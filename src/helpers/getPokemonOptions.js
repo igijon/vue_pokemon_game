@@ -1,4 +1,6 @@
 
+import pokemonApi from "../api/pokemonApi"
+
 const getPokemons = () => {
 
     const pokemonsArr = Array.from ( Array(650) )
@@ -15,9 +17,13 @@ const getPokemonOptions = () => {
 
 }
 
-const getPokemoNames = (pokemons = [] ) => {
+const getPokemoNames = async (pokemons = [] ) => {
 
-    console.log(pokemons)
+    //Vamos a añadir axios => yarn add axios
+    //Vamos a tener este API https://pokeapi.co/
+    const resp = await pokemonApi.get(`/1`)
+    
+    console.log(resp)
      
 }
 
