@@ -11,10 +11,12 @@
     
   </div>
 
-  <div v-if="showAnswer">
+  <!--Si no quiero un div adicional por motivos de diseño para que no aparezca en el
+  html puedo sustituirlo por template-->
+  <template v-if="showAnswer">
     <h2 class="fade-in">{{ message }}</h2>
     <button @click="newGame">Nuevo juego</button>
-  </div>
+  </template>
 </template>
 
 <script>
