@@ -1,4 +1,4 @@
-import { getPokemons } from '@/helpers/getPokemonOptions'
+import { getPokemons, getPokemonNames } from '@/helpers/getPokemonOptions'
 
 
 //yarn test:unit getPokemonOptions
@@ -16,7 +16,9 @@ describe('getPokemonOptions helpers', () => {
     })
 
     test('debe devolver un array de 4 elementos con nombres de pokemons', () => {
-
+        const pokemons = getPokemonNames([1,2,3,4])
+        //Con esto debe aparecer una promesa pendiente de resolver
+        console.log(pokemons);
     })
 
     test('debe devolver un array mezclado', () => {
