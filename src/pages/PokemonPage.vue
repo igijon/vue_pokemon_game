@@ -1,46 +1,47 @@
 <template>
-  <h1>¿Quién es este Pokémon?</h1>
+  <div v-if="pokemon">
+    <h1>¿Quién es este Pokémon?</h1>
 
-  <PokemonPicture :pokemonId="pokemon.id" :showPokemon="true"/>
-  <PokemonOptions :pokemons="pokemonArr"/>
+    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="true" />
+    <PokemonOptions :pokemons="pokemonArr" />
+  </div>
 </template>
 
 <script>
-import PokemonOptions from '../components/PokemonOptions.vue'
-import PokemonPicture from '../components/PokemonPicture.vue'
+import PokemonOptions from "../components/PokemonOptions.vue";
+import PokemonPicture from "../components/PokemonPicture.vue";
 
-import getPokemonOptions from '@/helpers/getPokemonOptions'
+import getPokemonOptions from "@/helpers/getPokemonOptions";
 
 export default {
-    name: 'PokemonPage',
-    components: {
-        PokemonOptions,
-        PokemonPicture
-    }, 
-    data() {
-      return {
-        pokemonArr: [],
-        pokemon: null //Aquí tendremos el pokemon aleatorio que tenemos que adivinar en el juego
-      }
-    },
-    methods: {
-      //queremos que se llame cuando cargue, utilizaremos los hooks del 
-      //ciclo de vida de Vue
-      async mixPokemonArray() {
-        //Como tiene async es una promesa 
-        this.pokemonArr = await getPokemonOptions()
+  name: "PokemonPage",
+  components: {
+    PokemonOptions,
+    PokemonPicture,
+  },
+  data() {
+    return {
+      pokemonArr: [],
+      pokemon: null, //Aquí tendremos el pokemon aleatorio que tenemos que adivinar en el juego
+    };
+  },
+  methods: {
+    //queremos que se llame cuando cargue, utilizaremos los hooks del
+    //ciclo de vida de Vue
+    async mixPokemonArray() {
+      //Como tiene async es una promesa
+      this.pokemonArr = await getPokemonOptions();
 
-        const rndInt = Math.floor( Math.random() * 4 ) //Quiero un número entero entre 0 y 3 
-        this.pokemon =  this.pokemonArr[ rndInt ]
-        console.log(this.pokemon);
-      }
+      const rndInt = Math.floor(Math.random() * 4); //Quiero un número entero entre 0 y 3
+      this.pokemon = this.pokemonArr[rndInt];
+      console.log(this.pokemon);
     },
-    mounted() {
-      this.mixPokemonArray()
-    }
-}
+  },
+  mounted() {
+    this.mixPokemonArray();
+  },
+};
 </script>
 
 <style>
-
 </style>
