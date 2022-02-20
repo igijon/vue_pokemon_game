@@ -13,11 +13,21 @@ describe("PokemonOptions component", () => {
         //pokemons:pokemon
         pokemons,
       },
-    });
-  });
+    })
+  })
 
   test("debe hacer match con snapshot", () => {
-    console.log(wrapper.html());
-    expect(wrapper.html()).toMatchInlineSnapshot();
-  });
-});
+    
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  test('debe mostrar las cuatro opciones correctamente', () => {
+
+  })
+
+  test('debe emitir "selection" con sus respectivos parámetros al hacer click', () => {
+
+
+  })
+
+})
