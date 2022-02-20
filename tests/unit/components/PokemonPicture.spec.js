@@ -31,8 +31,8 @@ describe('PokemonPicture component', () => {
         expect(img1.exists()).toBeTruthy()
         //expect(img2.exists()).toBeFalsy()
         expect(img2).toBe( undefined )
+        expect( img1.classes('hidden-pokemon') ).toBeTruthy()
 
-        console.log(img1.classes())
     })
 
     test('debe mostrar el pokemon si showPokemon está en true', () => {
