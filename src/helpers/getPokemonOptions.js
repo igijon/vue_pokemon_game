@@ -1,7 +1,9 @@
 
 import pokemonApi from "../api/pokemonApi"
 
-const getPokemons = () => {
+//Exportamos las funciones para las pruebas
+
+export const getPokemons = () => {
 
     const pokemonsArr = Array.from ( Array(650) )
     //Quiero recorrer los elementos y colocarles el valor que va desde 1 hasta 651
@@ -9,15 +11,16 @@ const getPokemons = () => {
 
 }
 
+//Obvio exportar esto porque está abajo exportado por defecto
 const getPokemonOptions = async () => {
     
     //Necesito poder mezclar el array
     const mixedPokemons = getPokemons().sort( () => Math.random() - 0.5  )
-    const pokemons = await getPokemoNames( mixedPokemons.splice(0,4) ) //Sólo quiero enviar los primeros 4 pokemons para montar los nombres
+    const pokemons = await getPokemonNames( mixedPokemons.splice(0,4) ) //Sólo quiero enviar los primeros 4 pokemons para montar los nombres
     return pokemons
 }
 
-const getPokemoNames = async ( [a,b,c,d] = [] ) => {
+export const getPokemonNames = async ( [a,b,c,d] = [] ) => {
 
     //Vamos a añadir axios => yarn add axios
     //Vamos a tener este API https://pokeapi.co/
