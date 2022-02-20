@@ -5,6 +5,9 @@
 
     <pokemon-picture :pokemonId="pokemon.id" :showPokemon="showPokemon"></pokemon-picture>
     <PokemonOptions :pokemons="pokemonArr" @selected-pokemon="checkAnswer"/>
+
+    <h2 v-if="showAnswer" class="fade-in">{{ message }}</h2>
+    <button v-if="showAnswer">Nuevo juego</button>
   </div>
 </template>
 
@@ -24,7 +27,9 @@ export default {
     return {
       pokemonArr: [],
       pokemon: null, //Aquí tendremos el pokemon aleatorio que tenemos que adivinar en el juego
-      showPokemon: false //Me permitirá determinar si muestro o no el pokemon
+      showPokemon: false, //Me permitirá determinar si muestro o no el pokemon
+      showAnswer: false,
+      message: ''
     };
   },
   methods: {
@@ -38,8 +43,15 @@ export default {
       this.pokemon = this.pokemonArr[rndInt];
       console.log(this.pokemon);
     },
-    checkAnswer(pokemonId){
+    checkAnswer(selectedId){
       this.showPokemon = true
+      this.showAnswer = true
+      if(selectedId == this.pokemon.id){
+        this.message = `Correcto, ${this.pokemon.name}`
+      } else {
+        this.message = `Oooops, era ${this.pokemon.name}`
+      }
+
     }
   },
   mounted() {
