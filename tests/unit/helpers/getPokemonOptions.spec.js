@@ -30,7 +30,27 @@ describe('getPokemonOptions helpers', () => {
     test('getPokemonOptions debe devolver un array mezclado', async () => {
 
         const pokemons = await getPokemonsOptions()
-        console.log(pokemons)
+        
+        expect( pokemons.length ).toBe(4)
+        //No puedo comprobar los valores porque serán aleatorios
+        expect( pokemons ).toEqual([
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number) 
+            },
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number) 
+            },
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number) 
+            },
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number) 
+            }
+        ])
     })
 
 })
