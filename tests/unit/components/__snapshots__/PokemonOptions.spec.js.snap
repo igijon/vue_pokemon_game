@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokemonOptions component debe hacer match con snapshot 1`] = `
+<div class="options-container">
+  <ul>
+    <!--Cuando hagamos click quiero emitir el id del pokemon al padre
+      $emit permite comunicar el componente hijo con el padre
+      Hay custom events que podemos ver en la documentación de Vue:
+      https://vuejs.org/guide/components/events.html
+      -->
+    <li>pikachu</li>
+    <li>charmander</li>
+    <li>venusaur</li>
+    <li>mew</li>
+  </ul>
+</div>
+`;
