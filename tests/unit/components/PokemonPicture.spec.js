@@ -33,6 +33,9 @@ describe('PokemonPicture component', () => {
         expect(img2).toBe( undefined )
         expect( img1.classes('hidden-pokemon') ).toBeTruthy()
 
+        const src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/100.svg'
+        expect( img1.attributes('src')).toBe(src)
+
     })
 
     test('debe mostrar el pokemon si showPokemon está en true', () => {
