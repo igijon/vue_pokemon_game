@@ -4,7 +4,7 @@
     <h1>¿Quién es este Pokémon?</h1>
 
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-    <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer(1, $event)"/>
+    <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer"/>
   </div>
 </template>
 
@@ -38,8 +38,9 @@ export default {
       this.pokemon = this.pokemonArr[rndInt];
       console.log(this.pokemon);
     },
-    checkAnswer(numero, pokemonId){
-      console.log("Pokemon llamado: ", numero, pokemonId)
+    checkAnswer(pokemonId){
+      //Cuando sólo queremos recoger el evento, no hace falta poner en el template ($event)
+      console.log("Pokemon llamado: ", pokemonId)
     }
   },
   mounted() {
