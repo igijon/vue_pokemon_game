@@ -3,7 +3,7 @@
   <div v-else>
     <h1>¿Quién es este Pokémon?</h1>
 
-    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="true" />
+    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
     <PokemonOptions :pokemons="pokemonArr" />
   </div>
 </template>
@@ -24,6 +24,7 @@ export default {
     return {
       pokemonArr: [],
       pokemon: null, //Aquí tendremos el pokemon aleatorio que tenemos que adivinar en el juego
+      showPokemon: false //Me permitirá determinar si muestro o no el pokemon
     };
   },
   methods: {
