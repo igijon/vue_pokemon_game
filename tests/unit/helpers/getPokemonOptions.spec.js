@@ -1,5 +1,5 @@
-import { getPokemons, getPokemonNames } from '@/helpers/getPokemonOptions'
-
+import getPokemonsOptions, { getPokemons, getPokemonNames } from '@/helpers/getPokemonOptions'
+//La exportación por defecto va fuera de las llaves
 
 //yarn test:unit getPokemonOptions
 describe('getPokemonOptions helpers', () => {
@@ -27,8 +27,10 @@ describe('getPokemonOptions helpers', () => {
         ])
     })
 
-    test('debe devolver un array mezclado', () => {
+    test('getPokemonOptions debe devolver un array mezclado', async () => {
 
+        const pokemons = await getPokemonsOptions()
+        console.log(pokemons)
     })
 
 })
