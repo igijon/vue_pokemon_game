@@ -1,7 +1,7 @@
 <template>
   <h1>¿Quién es este Pokémon?</h1>
 
-  <PokemonPicture :pokemonId="151" :showPokemon="true"/>
+  <PokemonPicture :pokemonId="100" :showPokemon="true"/>
   <PokemonOptions :pokemons="pokemonArr"/>
 </template>
 
@@ -19,7 +19,8 @@ export default {
     }, 
     data() {
       return {
-        pokemonArr: []
+        pokemonArr: [],
+        pokemon: null //Aquí tendremos el pokemon aleatorio que tenemos que adivinar en el juego
       }
     },
     methods: {
@@ -28,7 +29,10 @@ export default {
       async mixPokemonArray() {
         //Como tiene async es una promesa 
         this.pokemonArr = await getPokemonOptions()
-        //Esta información sale distinta porque es una propiedad reactiva
+
+        const rndInt = Math.floor( Math.random() * 4 ) //Quiero un número entero entre 0 y 3 
+        this.pokemon =  this.pokemonArr[ rndInt ]
+        console.log(this.pokemon);
       }
     },
     mounted() {
