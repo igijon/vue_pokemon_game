@@ -6,7 +6,7 @@
       Hay custom events que podemos ver en la documentación de Vue:
       https://vuejs.org/guide/components/events.html
       -->
-      <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit( 'selection' )">
+      <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit( 'selection', pokemon.id )">
         {{ pokemon.name }}
       </li>
     </ul>

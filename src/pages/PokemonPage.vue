@@ -4,7 +4,7 @@
     <h1>¿Quién es este Pokémon?</h1>
 
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-    <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer"/>
+    <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer(1, $event)"/>
   </div>
 </template>
 
@@ -38,8 +38,8 @@ export default {
       this.pokemon = this.pokemonArr[rndInt];
       console.log(this.pokemon);
     },
-    checkAnswer(){
-      console.log("Pokemon llamado")
+    checkAnswer(numero, pokemonId){
+      console.log("Pokemon llamado: ", numero, pokemonId)
     }
   },
   mounted() {
