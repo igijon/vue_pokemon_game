@@ -39,8 +39,7 @@ export default {
       console.log(this.pokemon);
     },
     checkAnswer(pokemonId){
-      //Cuando sólo queremos recoger el evento, no hace falta poner en el template ($event)
-      console.log("Pokemon llamado: ", pokemonId)
+      this.showPokemon = true
     }
   },
   mounted() {
