@@ -15,10 +15,16 @@ describe('getPokemonOptions helpers', () => {
 
     })
 
-    test('debe devolver un array de 4 elementos con nombres de pokemons', () => {
-        const pokemons = getPokemonNames([1,2,3,4])
+    test('debe devolver un array de 4 elementos con nombres de pokemons', async () => {
+        const pokemons = await getPokemonNames([1,2,3,4])
         //Con esto debe aparecer una promesa pendiente de resolver
-        console.log(pokemons);
+        expect( pokemons.length).toBe(4)
+        expect( pokemons ).toStrictEqual([ //No podemos usar toBe porque esto también compara referencias de objetos
+            { name: 'bulbasaur', id: 1 },
+            { name: 'ivysaur', id: 2 },
+            { name: 'venusaur', id: 3 },
+            { name: 'charmander', id: 4 }
+        ])
     })
 
     test('debe devolver un array mezclado', () => {
