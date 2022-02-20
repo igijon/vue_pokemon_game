@@ -65,6 +65,7 @@ export default {
       this.showPokemon = false
       this.showAnswer = false
       this.pokemonArr = []
+      this.pokemon = null //Es el que mantiene la imagen
       this.mixPokemonArray()
     }
   },
