@@ -15,4 +15,12 @@ describe('getPokemonOptions helpers', () => {
 
     })
 
+    test('debe devolver un array de 4 elementos con nombres de pokemons', () => {
+
+    })
+
+    test('debe devolver un array mezclado', () => {
+
+    })
+
 })
