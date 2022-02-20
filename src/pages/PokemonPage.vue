@@ -4,7 +4,7 @@
     <h1>¿Quién es este Pokémon?</h1>
 
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-    <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer"/>
+    <PokemonOptions :pokemons="pokemonArr" @selected-pokemon="checkAnswer"/>
   </div>
 </template>
 
