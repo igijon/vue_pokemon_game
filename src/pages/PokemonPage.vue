@@ -3,19 +3,25 @@
   <div v-else>
     <h1>¿Quién es este Pokémon?</h1>
 
-    <pokemon-picture :pokemonId="pokemon.id" :showPokemon="showPokemon"></pokemon-picture>
-    <PokemonOptions :pokemons="pokemonArr" @selected-pokemon="checkAnswer"/>
+    <pokemon-picture
+      :pokemonId="pokemon.id"
+      :showPokemon="showPokemon"
+    ></pokemon-picture>
+    <PokemonOptions :pokemons="pokemonArr" @selected-pokemon="checkAnswer" />
+    
+  </div>
 
-    <h2 v-if="showAnswer" class="fade-in">{{ message }}</h2>
-    <button v-if="showAnswer">Nuevo juego</button>
+  <div v-if="showAnswer">
+    <h2 class="fade-in">{{ message }}</h2>
+    <button>Nuevo juego</button>
   </div>
 </template>
 
 <script>
-import PokemonOptions from "../components/PokemonOptions.vue";
-import PokemonPicture from "../components/PokemonPicture.vue";
+import PokemonOptions from "../components/PokemonOptions.vue"
+import PokemonPicture from "../components/PokemonPicture.vue"
 
-import getPokemonOptions from "@/helpers/getPokemonOptions";
+import getPokemonOptions from "@/helpers/getPokemonOptions"
 
 export default {
   name: "PokemonPage",
@@ -29,7 +35,7 @@ export default {
       pokemon: null, //Aquí tendremos el pokemon aleatorio que tenemos que adivinar en el juego
       showPokemon: false, //Me permitirá determinar si muestro o no el pokemon
       showAnswer: false,
-      message: ''
+      message: '',
     };
   },
   methods: {
@@ -37,27 +43,27 @@ export default {
     //ciclo de vida de Vue
     async mixPokemonArray() {
       //Como tiene async es una promesa
-      this.pokemonArr = await getPokemonOptions();
+      this.pokemonArr = await getPokemonOptions()
 
-      const rndInt = Math.floor(Math.random() * 4); //Quiero un número entero entre 0 y 3
-      this.pokemon = this.pokemonArr[rndInt];
-      console.log(this.pokemon);
+      const rndInt = Math.floor(Math.random() * 4) //Quiero un número entero entre 0 y 3
+      this.pokemon = this.pokemonArr[rndInt]
+      console.log(this.pokemon)
     },
-    checkAnswer(selectedId){
+    checkAnswer(selectedId) {
       this.showPokemon = true
       this.showAnswer = true
-      if(selectedId == this.pokemon.id){
+
+      if (selectedId == this.pokemon.id) {
         this.message = `Correcto, ${this.pokemon.name}`
       } else {
         this.message = `Oooops, era ${this.pokemon.name}`
       }
-
-    }
+    },
   },
   mounted() {
-    this.mixPokemonArray();
+    this.mixPokemonArray()
   },
-};
+}
 </script>
 
 <style>
