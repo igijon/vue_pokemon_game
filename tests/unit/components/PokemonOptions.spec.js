@@ -35,7 +35,19 @@ describe("PokemonOptions component", () => {
 
     test('debe emitir "selection" con sus respectivos parámetros al hacer click', () => {
 
+        const [ li1, li2, li3, li4 ] = wrapper.findAll('li')
 
+        li1.trigger('click') //No tengo que poner await todavía porque no necesito esperar la renderización
+
+        console.log(wrapper.emitted('selectedPokemon'))
+        //Mostrará un array con todos los argumentos con los que se emitió, en este caso sólo uno
+        //el id que en este caso es el 5
+        
+        //compruebo que se emitió una vez
+        expect( wrapper.emitted('selectedPokemon').length).toBe(1)
+        //Voy a comprobar si se emitió con el valor correcto
+        expect( wrapper.emitted('selectedPokemon')[0]).toEqual([5])
+        //No puedo usar toBe para igualar  []===[] ni {}==={}, habría que usar toEqual por ejemplo
     })
 
 })
