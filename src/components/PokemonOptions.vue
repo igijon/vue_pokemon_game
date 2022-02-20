@@ -1,10 +1,15 @@
 <template>
   <div class="options-container">
-      <ul>
-          <li v-for="pokemon in pokemons" :key="pokemon.id"> <!--Un key es un identificador único par el componente-->
-            {{ pokemon.name }}
-          </li>
-      </ul>
+    <ul>
+      <!--Cuando hagamos click quiero emitir el id del pokemon al padre
+      $emit permite comunicar el componente hijo con el padre
+      Hay custom events que podemos ver en la documentación de Vue:
+      https://vuejs.org/guide/components/events.html
+      -->
+      <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit( 'selection' )">
+        {{ pokemon.name }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -13,10 +18,10 @@ export default {
   props: {
     pokemons: {
       type: Array,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>
