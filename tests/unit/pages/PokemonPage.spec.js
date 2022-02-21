@@ -72,4 +72,32 @@ describe('PokemonPage component', () => {
         //PokemonOptions attribute pokemons toBe true
 
     })
+
+    test('pruebas con checkAnswer', async () => {
+
+        const wrapper = shallowMount( PokemonPage, {
+            data() {
+                return {
+                    pokemonArr: pokemons,
+                    pokemon: pokemons[0],
+                    showPokemon: false, 
+                    showAnswer: false,
+                    message: '',
+                }
+            }
+        } )
+
+        //Al hacer esto, literalmente lo estoy ejecutando
+        await wrapper.vm.checkAnswer(5) //Tenemos que hacer un await porque hay que esperar a que vue haga todo el renderizado del DOM
+        //Debería aparecer el mensaje correcto porque el correcto es el 5
+        expect(wrapper.find('h2').exists()).toBeTruthy()
+        expect(wrapper.vm.showPokemon).toBeTruthy()
+        expect(wrapper.find('h2').text()).toBe(`Correcto, ${ pokemons[0].name }`)
+
+        await wrapper.vm.checkAnswer(10)
+        expect(wrapper.vm.message).toBe(`Oooops, era ${pokemons[0].name}`)
+
+
+
+    })
 })
