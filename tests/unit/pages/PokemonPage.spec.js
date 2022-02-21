@@ -45,4 +45,29 @@ describe('PokemonPage component', () => {
         expect( wrapper.html() ).toMatchSnapshot()
 
     })
+
+    test('debe mostrar los componentes de PokemonPicture y PokemonOptions', () => {
+        /* PokemonPicture y PokemonOptions debenn existir */
+        const wrapper = shallowMount( PokemonPage, {
+            data() {
+                return {
+                    pokemonArr: pokemons,
+                    pokemon: pokemons[0],
+                    showPokemon: false, 
+                    showAnswer: false,
+                    message: '',
+                }
+            }
+        } )
+
+        expect( wrapper.find('pokemon-picture-stub').exists()).toBeTruthy()
+        expect( wrapper.find('pokemon-options-stub').exists()).toBeTruthy()
+
+        //PokemonPicture debe tener el atributo pokemonId === 5
+
+        expect( wrapper.find('pokemon-picture-stub').attributes('pokemonid')).toBe('5')
+        expect( wrapper.find('pokemon-options-stub').attributes('pokemons')).toBeTruthy()
+        //PokemonOptions attribute pokemons toBe true
+
+    })
 })
