@@ -1,12 +1,14 @@
 import { shallowMount, mount } from '@vue/test-utils' 
-import PokemonPage from '@/components/PokemonPage'
+import PokemonPage from '@/pages/PokemonPage'
 
 describe('PokemonPage component', () => {
 
     let wrapper
+    let mixPokemonArraySpy
 
     beforeEach(() => {
-
+        jest.clearAllMocks()
+        mixPokemonArraySpy = jest.spyOn( PokemonPage.methods, 'mixPokemonArray' )
         wrapper = shallowMount( PokemonPage )
 
     })
@@ -20,8 +22,6 @@ describe('PokemonPage component', () => {
 
     test('debe llamar mixPokemonArray al montar', () => {
 
-        //Cuando hago el espía, el componente está montado y ya se ha disparado
-        const mixPokemonArraySpy = jest.spyOn( PokemonPage.methods, 'mixPokemonArray' )
         expect( mixPokemonArraySpy ).toHaveBeenCalled()
 
     })

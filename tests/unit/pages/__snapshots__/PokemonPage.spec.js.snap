@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokemonPage component debe hacer match con el snapshot 1`] = `
+<h1>Espere por favor...</h1>
+<!--Si no quiero un div adicional por motivos de diseño para que no aparezca en el
+  html puedo sustituirlo por template-->
+<!--v-if-->
+`;
