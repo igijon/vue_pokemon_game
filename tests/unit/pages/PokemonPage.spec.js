@@ -60,13 +60,15 @@ describe('PokemonPage component', () => {
             }
         } )
 
-        expect( wrapper.find('pokemon-picture-stub').exists()).toBeTruthy()
-        expect( wrapper.find('pokemon-options-stub').exists()).toBeTruthy()
+        const picture = wrapper.find('pokemon-picture-stub')
+        const options = wrapper.find('pokemon-options-stub')
+        expect( picture.exists()).toBeTruthy()
+        expect( options.exists()).toBeTruthy()
 
         //PokemonPicture debe tener el atributo pokemonId === 5
 
-        expect( wrapper.find('pokemon-picture-stub').attributes('pokemonid')).toBe('5')
-        expect( wrapper.find('pokemon-options-stub').attributes('pokemons')).toBeTruthy()
+        expect( picture.attributes('pokemonid')).toBe('5')
+        expect( options.attributes('pokemons')).toBeTruthy()
         //PokemonOptions attribute pokemons toBe true
 
     })
