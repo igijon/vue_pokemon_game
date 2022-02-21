@@ -29,9 +29,8 @@ describe('PokemonPage component', () => {
 
     test('debe hacer match con snapshot cuando cargan los pokemons', () => {
         
-        /* con mount sí se montan todos los compoentnes con todo su ciclo de vida, no una simulación
-        más ligero el shallowMount*/
-        const wrapper = mount( PokemonPage, {
+        
+        const wrapper = shallowMount( PokemonPage, {
             data() {
                 return {
                     pokemonArr: pokemons,
