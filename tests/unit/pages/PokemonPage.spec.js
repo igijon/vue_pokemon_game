@@ -29,9 +29,9 @@ describe('PokemonPage component', () => {
 
     test('debe hacer match con snapshot cuando cargan los pokemons', () => {
         
-        /* stub es como start in y simula el comportamiento del componente (podemos verlos en el snapshot generado) pero no es
-        el componente real */
-        const wrapper = shallowMount( PokemonPage, {
+        /* con mount sí se montan todos los compoentnes con todo su ciclo de vida, no una simulación
+        más ligero el shallowMount*/
+        const wrapper = mount( PokemonPage, {
             data() {
                 return {
                     pokemonArr: pokemons,

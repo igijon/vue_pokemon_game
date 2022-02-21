@@ -10,8 +10,20 @@ exports[`PokemonPage component debe hacer match con el snapshot 1`] = `
 exports[`PokemonPage component debe hacer match con snapshot cuando cargan los pokemons 1`] = `
 <div>
   <h1>¿Quién es este Pokémon?</h1>
-  <pokemon-picture-stub pokemonid="5" showpokemon="false"></pokemon-picture-stub>
-  <pokemon-options-stub pokemons="[object Object],[object Object],[object Object],[object Object]"></pokemon-options-stub>
+  <div class="pokemon-container"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/5.svg" class="hidden-pokemon" alt="pokemon"></div>
+  <div class="options-container">
+    <ul>
+      <!--Cuando hagamos click quiero emitir el id del pokemon al padre
+      $emit permite comunicar el componente hijo con el padre
+      Hay custom events que podemos ver en la documentación de Vue:
+      https://vuejs.org/guide/components/events.html
+      -->
+      <li>pikachu</li>
+      <li>charmander</li>
+      <li>venusaur</li>
+      <li>mew</li>
+    </ul>
+  </div>
 </div>
 <!--Si no quiero un div adicional por motivos de diseño para que no aparezca en el
   html puedo sustituirlo por template-->
