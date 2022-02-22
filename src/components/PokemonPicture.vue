@@ -1,12 +1,15 @@
 <template>
-    <img 
-        :src="imgSrc" 
-        alt="pokemon"
-        class="hidden-pokemon">
-    <img v-if="showPokemon"
-        :src="imgSrc" 
-        alt="pokemon"
-        class="fade-in">
+    <div class="pokemon-container">
+        <img 
+            :src="imgSrc" 
+            alt="pokemon"
+            class="hidden-pokemon">
+        <img v-if="showPokemon"
+            :src="imgSrc" 
+            alt="pokemon"
+            class="fade-in">
+    </div>
+    
 </template>
 
 <script>
@@ -36,7 +39,7 @@ export default {
 }
 img {
   height: 200px;
-  position: absolute; /*Esto hace que las dos quedan montadas*/
+  position: absolute; 
   right: 32%;
   user-select: none;
   -moz-user-select: none;
